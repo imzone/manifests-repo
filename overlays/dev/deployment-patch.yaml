@@ -1,18 +1,17 @@
---
-apiVersion: kustomize.config.k8s.io/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-test
-  namespace: itest
+  namespace: test
   labels:
     env: dev
-  spec:
-    selector:
-      matchLabels:
+spec:
+  selector:
+    matchLabels:
+      app: nginx-test
+  template:
+    metadata:
+      labels:
         app: nginx-test
-    template:
-      metadata:
-        labels:
-          app: nginx-test
 
 
